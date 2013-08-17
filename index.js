@@ -16,3 +16,4 @@ io.sockets.emit('message', data);
 });
 app.listen(3700);
 console.log("Listening on port"+port);
+
