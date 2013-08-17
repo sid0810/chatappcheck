@@ -1,14 +1,11 @@
 var express = require("express");
 var app = express();
-app.set('views','~/realtimechat'+'/tpl');
-app.set('view engine', "jade");
+app.set(express.static( __dirname + '/public'))
+app.set('view engine', 'jade');
 app.engine('jade',require('jade')._express);
 app.get("/",function(req,res){
 res.render("page");
 });
-
-app.use(express.static( '~/realtimechat' + '/public'));
-
 var io = require('socket.io').listen(app);
 
 io.sockets.on('connection',function (socket) {
